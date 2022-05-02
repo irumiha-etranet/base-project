@@ -96,7 +96,7 @@ tasks {
         }
     }
 }
-graalvmNative.toolchainDetection.set(false)
+graalvmNative.toolchainDetection.set(true)
 micronaut {
     runtime("netty")
     testRuntime("junit5")
