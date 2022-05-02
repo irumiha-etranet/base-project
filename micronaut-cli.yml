@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: hr.etranet
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [annotation-api, app-name, cache-caffeine, config4k, email-javamail, email-template, flyway, github-workflow-docker-registry, github-workflow-graal-docker-registry, graalvm, gradle, hibernate-validator, http-client, jdbc-hikari, jib, jooq, junit, kotlin, kotlin-application, kotlin-build, kotlin-extension-functions, kubernetes, logback, management, micrometer, micrometer-prometheus, micronaut-aot, micronaut-build, mockito, netty-server, openapi, postgres, reactor, reactor-http-client, readme, security-annotations, security-jwt, security-oauth2, serialization-jackson, shade, swagger-ui, testcontainers, tracing-jaeger, views-thymeleaf]
