@@ -11,7 +11,7 @@ plugins {
 version = "0.1"
 group = "hr.etranet"
 
-val kotlinVersion=project.properties.get("kotlinVersion")
+val kotlinVersion= project.properties["kotlinVersion"]
 repositories {
     mavenCentral()
 }
@@ -21,6 +21,7 @@ dependencies {
     kapt("io.micronaut.openapi:micronaut-openapi")
     kapt("io.micronaut.security:micronaut-security-annotations")
     kapt("io.micronaut.serde:micronaut-serde-processor")
+
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-management")
     implementation("io.micronaut:micronaut-runtime")
@@ -46,8 +47,10 @@ dependencies {
     implementation("jakarta.annotation:jakarta.annotation-api")
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
+
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql")
     testImplementation("org.testcontainers:testcontainers")
@@ -81,11 +84,11 @@ tasks {
         }
     }
     dockerBuild {
-        images = ["${System.env.DOCKER_IMAGE ?: project.name}:$project.version"]
+        images.set(listOf("${System.getenv()["DOCKER_IMAGE"] ?: project.name}:$project.version"))
     }
 
     dockerBuildNative {
-        images = ["${System.env.DOCKER_IMAGE ?: project.name}:$project.version"]
+        images.set(listOf("${System.getenv()["DOCKER_IMAGE"] ?: project.name}:$project.version"))
     }
     jib {
         to {
